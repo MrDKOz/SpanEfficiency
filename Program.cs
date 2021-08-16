@@ -1,10 +1,11 @@
 ﻿using System;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using Microsoft.CodeAnalysis.Operations;
 
 namespace SpanEfficiency
 {
-    public class Program
+    internal class Program
     {
         private static void Main()
         {
@@ -18,26 +19,31 @@ namespace SpanEfficiency
         {
             while (true)
             {
-                Console.WriteLine($"What do you want to do?{Environment.NewLine} 1) Run all functions{Environment.NewLine} 2) Run Benchmark{Environment.NewLine} 3) Exit");
+                Console.WriteLine($"What do you want to do?{Environment.NewLine} " +
+                                  $"1) Run all functions{Environment.NewLine} " +
+                                  $"2) Run Benchmark{Environment.NewLine} " +
+                                  "3) Exit");
                 Console.Write("Your choice: ");
                 var choice = Console.ReadLine();
 
                 switch (choice)
                 {
                     case "1":
-                        var coliseum = new Coliseum();
+                        var colosseum = new Coliseum();
 
-                        Console.WriteLine("> Using Span");
-                        Console.WriteLine($">> All country codes  : {string.Join(", ", coliseum.FetchAllCountryCodesUsingSpan())}");
-                        Console.WriteLine($">> First country code : {string.Join(", ", coliseum.FetchSingleCountryCodeUsingSpan())}");
-
-                        Console.WriteLine("> Using Substring");
-                        Console.WriteLine($">> All country codes  : {string.Join(", ", coliseum.FetchAllCountryCodesUsingSubstring())}");
-                        Console.WriteLine($">> First country code : {string.Join(", ", coliseum.FetchSingleCountryCodeUsingSubstring())}");
-                        break;
+                        Console.WriteLine("============= START RESULTS =============");
+                        Console.WriteLine($"> Using Span{Environment.NewLine} " +
+                                          $">> All country codes  : {string.Join(", ", colosseum.FetchAllCountryCodesUsingSpan())}{Environment.NewLine} " +
+                                          $">> First country code : {string.Join(", ", colosseum.FetchSingleCountryCodeUsingSpan())}");
+                        Console.WriteLine();
+                        Console.WriteLine($"> Using Substring{Environment.NewLine} " +
+                                          $">> All country codes  : {string.Join(", ", colosseum.FetchAllCountryCodesUsingSubstring())}{Environment.NewLine} " +
+                                          $">> First country code : {string.Join(", ", colosseum.FetchSingleCountryCodeUsingSubstring())}");
+                        Console.WriteLine("============== END RESULTS ==============");
+                        continue;
                     case "2":
                         BenchmarkRunner.Run<Coliseum>();
-                        break;
+                        continue;
                     case "3":
                         Environment.Exit(0);
                         break;
@@ -45,8 +51,6 @@ namespace SpanEfficiency
                         Console.WriteLine("Not an option, try again.");
                         continue;
                 }
-
-                break;
             }
         }
 
