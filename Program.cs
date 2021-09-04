@@ -57,7 +57,7 @@ namespace SpanEfficiency
         [MemoryDiagnoser]
         public class Coliseum
         {
-            private readonly string[] _accountIds = { "OSBO44", "SMIT01", "CONL353", "POPE379", "KIMJ850" };
+            private readonly string[] _accountIds = { "OSBO44", "SMITH01", "CONL353", "POPE379", "KIMJ850" };
 
             /// <summary>
             /// Fetches all Country codes from all strings within _accountIds, by using the 'Substring' method.
