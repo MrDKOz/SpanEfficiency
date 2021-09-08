@@ -16,9 +16,9 @@ This project hopes to serve as a simple way of demonstrating, and showing the be
    3. "Exit" - This exits the application.
 
 # The Results
-|                               Method |     Mean |    Error |   StdDev |  Gen 0 | Gen 1 | Gen 2 | Allocated |
-|------------------------------------- |---------:|---------:|---------:|-------:|------:|------:|----------:|
-|   FetchAllCountryCodesUsingSubstring | 84.32 ns | 1.701 ns | 2.698 ns | 0.0331 |     - |     - |     208 B |
-|        FetchAllCountryCodesUsingSpan | 49.36 ns | 1.018 ns | 1.555 ns | 0.0076 |     - |     - |      48 B |
-|      FetchSingleCountryCodeUsingSpan | 11.32 ns | 0.247 ns | 0.362 ns |      - |     - |     - |         - |
-| FetchSingleCountryCodeUsingSubstring | 16.21 ns | 0.343 ns | 0.644 ns | 0.0051 |     - |     - |      32 B |
+|                               Method |     Mean |    Error |   StdDev |  Gen 0 | Allocated |
+|------------------------------------- |---------:|---------:|---------:|-------:|----------:|
+|   FetchAllCountryCodesUsingSubstring | 84.32 ns | 1.701 ns | 2.698 ns | 0.0331 |     208 B |
+|        FetchAllCountryCodesUsingSpan | 49.36 ns | 1.018 ns | 1.555 ns | 0.0076 |      48 B |
+|      FetchSingleCountryCodeUsingSpan | 11.32 ns | 0.247 ns | 0.362 ns |      - |         - |
+| FetchSingleCountryCodeUsingSubstring | 16.21 ns | 0.343 ns | 0.644 ns | 0.0051 |      32 B |
